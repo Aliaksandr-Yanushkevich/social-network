@@ -1,0 +1,14 @@
+.navbar {
+  grid-area: n;
+  background-color: green;
+}
+
+.item a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.item a.active {
+  color: rgb(37, 162, 173);
+}
