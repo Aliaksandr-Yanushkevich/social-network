@@ -22,9 +22,21 @@ const Profile = () => {
             education="Rolling Scopes Front-End Course"
           ></UserInfo>
           <NewPost />
-          <Post author="Eric Cartman" text="Hello, world!" />
-          <Post author="Eric Cartman" text="Do you miss me?" />
-          <Post author="Eric Cartman" text="Why nobody write me?" />
+          <Post
+            author="Eric Cartman"
+            text="Hello, world!"
+            likeCount={Math.ceil(Math.random() * 10)}
+          />
+          <Post
+            author="Eric Cartman"
+            text="Do you miss me?"
+            likeCount={Math.ceil(Math.random() * 10)}
+          />
+          <Post
+            author="Eric Cartman"
+            text="Why nobody write me?"
+            likeCount={Math.ceil(Math.random() * 10)}
+          />
         </div>
       </div>
     </div>

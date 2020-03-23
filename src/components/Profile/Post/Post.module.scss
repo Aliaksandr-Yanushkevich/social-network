@@ -14,8 +14,20 @@
   flex-direction: column;
 }
 
+.postDetails {
+    margin-bottom: 10px;
+}
+
 .author {
   text-decoration: none;
   font-weight: 600;
-  margin-bottom: 10px;
+}
+
+.likes {
+ padding-top: 10px;
+}
+
+.likes svg {
+    color: $primaryColor;
+    margin-right: 5px;
 }
