@@ -5,7 +5,10 @@ import UserInfo from "./UserInfo/UserInfo";
 import NewPost from "./NewPost/NewPost";
 import Post from "./Post/Post";
 
-const Profile = () => {
+const Profile = ({posts}) => {
+  const postsElements = posts.map(({ author, text, likeCount }) => (
+    <Post author={author} text={text} likeCount={likeCount} />
+  ));
   return (
     <div className={s.content}>
       <div className={s.narrowColumn}>
@@ -22,21 +25,7 @@ const Profile = () => {
             education="Rolling Scopes Front-End Course"
           ></UserInfo>
           <NewPost />
-          <Post
-            author="Eric Cartman"
-            text="Hello, world!"
-            likeCount={Math.ceil(Math.random() * 10)}
-          />
-          <Post
-            author="Eric Cartman"
-            text="Do you miss me?"
-            likeCount={Math.ceil(Math.random() * 10)}
-          />
-          <Post
-            author="Eric Cartman"
-            text="Why nobody write me?"
-            likeCount={Math.ceil(Math.random() * 10)}
-          />
+          {postsElements}
         </div>
       </div>
     </div>

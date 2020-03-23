@@ -6,8 +6,6 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import s from "./Post.module.scss";
 
 const Post = ({ text, author, likeCount }) => {
-  //   const options = { hour: "numeric", minute: "numeric", second: "numeric" };
-  const date = new Date();
   return (
     <div className={s.post}>
       <Avatar />
@@ -15,9 +13,23 @@ const Post = ({ text, author, likeCount }) => {
         <div className={s.postDetails}>
           <NavLink to="/profile" className={s.author}>
             {author}
-          </NavLink>
-          {" "}
-          {date.getHours()}:{date.getMinutes()};
+          </NavLink>{" "}
+          {function() {
+            const date = new Date();
+            let hours;
+            let minutes;
+            if (date.getHours() < 10) {
+              hours = "0" + date.getHours();
+            } else {
+              hours = date.getHours();
+            }
+            if (date.getMinutes() < 10) {
+              minutes = "0" + date.getMinutes();
+            } else {
+              minutes = date.getMinutes();
+            }
+            return `${hours}:${minutes}`;
+          }()}
         </div>
         {text}
         <div className={s.likes}>
