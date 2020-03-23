@@ -1,0 +1,21 @@
+@import "../../Styleguide/Styleguide.scss";
+
+.post {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.message {
+  padding: 10px;
+  border: $border;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

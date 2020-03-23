@@ -1,14 +1,18 @@
+@import '../Styleguide/Styleguide.scss';
+
 .navbar {
   grid-area: n;
-  background-color: green;
+  background-color: $secondaryColor;
+  font-family: $font;
 }
 
 .item a {
   text-decoration: none;
   font-size: 1.2rem;
-  color: white;
+  color: $textColor;
 }
 
 .item a.active {
-  color: rgb(37, 162, 173);
+  color:#964C63;
+  font-weight: $activeTextWeight;
 }

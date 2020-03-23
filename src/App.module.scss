@@ -1,3 +1,5 @@
+@import "./components/Styleguide/Styleguide.scss";
+
 .app_wrapper {
   display: grid;
   max-width: 1440px;
@@ -13,5 +15,5 @@
 
 .app_wrapper_content {
   grid-area: c;
-  background-color: gold;
+  background-color: $secondaryColor;
 }

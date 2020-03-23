@@ -1,0 +1,27 @@
+$primaryColor: #964c63;
+$secondaryColor: #f2f2f2;
+$boxColor: #ffffff;
+$font: "Roboto", Sans-serif;
+$titleColor: #002439;
+$textColor: #7a7aa5;
+$activeColor: #964c63;
+$border: 1px solid #DCC2CB;
+$activeTextWeight: 700;
+
+h1 {
+  color: #000000;
+  font-weight: 800;
+}
+
+h2 {
+  color: $titleColor;
+}
+
+.button {
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: 800;
+}
