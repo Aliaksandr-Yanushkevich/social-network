@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
     profilePage: {
         posts: [
@@ -10,6 +12,7 @@ const state = {
                 likeCount: 12
             }
         ],
+        newPostText: "Onion Omega2"
     },
 
     messagesPage: {
@@ -25,6 +28,20 @@ const state = {
             { message: "You will respect my authority!" }
         ]
     }
+}
+
+export const addNewPost = () => {
+    const newPost = {
+        id: 4, text: state.profilePage.newPostText, likesCount: 0
+    }
+    state.profilePage.posts.push(newPost);
+    updateNewPostText("");
+    rerenderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
 }
 
 export default state;

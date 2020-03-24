@@ -2,27 +2,37 @@ import React from "react";
 import s from "./NewPost.module.scss";
 import Avatar from "../Avatar/Avatar";
 
-const NewPost = () => {
+const NewPost = ({ id, addNewPost, newPostText, updateNewPostText }) => {
+  let newPostElement = React.createRef();
+  let addPost = () => {
+    addNewPost();
+  };
+  const onPostChange = () => {
+    let text = newPostElement.current.value;
+    updateNewPostText(text);
+  };
   return (
     <div className={s.newPost}>
-      <form action="newPost.js" method="post">
-        <h2>My posts</h2>
-        <div className={s.message}>
-          <Avatar/>
-          <textarea
-            className={s.inputField}
-            name=""
-            id="newPost"
-            cols="100"
-            rows="3"
-            placeholder="Anything new?"
-          ></textarea>
-        </div>
-
-        <p>
-          <input className={s.button} value="Send" type="submit" />
-        </p>
-      </form>
+      <h2>My posts</h2>
+      <div className={s.message}>
+        <Avatar />
+        <textarea
+          onChange={onPostChange}
+          ref={newPostElement}
+          className={s.inputField}
+          value={newPostText}
+          name=""
+          id={id}
+          cols="120"
+          rows="3"
+          placeholder="Anything new?"
+        ></textarea>
+      </div>
+      <div className={s.buttonWrapper}>
+        <button className={s.button} onClick={() => addPost()}>
+          Send
+        </button>
+      </div>
     </div>
   );
 };

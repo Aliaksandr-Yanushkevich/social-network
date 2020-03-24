@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "./Message/Message";
+import NewMessage from "./NewMessage/NewMessage";
 import s from "./Messages.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 
@@ -19,6 +20,7 @@ const Messages = ({ dialogs, messages }) => {
         <ul>{dialogItems}</ul>
       </div>
       <div className={s.messages}>{messageItems}</div>
+      <NewMessage/>
     </div>
   );
 };
