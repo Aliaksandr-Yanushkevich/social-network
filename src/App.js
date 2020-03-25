@@ -28,4 +28,5 @@ const App = ({ appState, addNewPost, updateNewPostText}) => {
 
   )
 }
+
 export default App;
