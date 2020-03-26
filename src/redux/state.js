@@ -28,9 +28,12 @@ const state = {
             { message: "How is going on?" },
             { message: "What a bore!" },
             { message: "You will respect my authority!" }
-        ]
+        ],
+        newMessageText: "The answer: 42"
     }
 }
+
+window.state = state;
 
 export const addNewPost = () => {
     const newPost = {
@@ -44,6 +47,24 @@ export const addNewPost = () => {
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
+}
+
+export const sendNewMessage = () => {
+    const newMessage = {
+        message: state.messagesPage.newMessageText
+    }
+    state.messagesPage.messages.push(newMessage);
+    updateNewMessageText("");
+    rerenderEntireTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+    state.messagesPage.newMessageText = newText;
+    rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;

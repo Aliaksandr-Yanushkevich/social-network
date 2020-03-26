@@ -30,7 +30,7 @@ const NewPost = ({ id, addNewPost, newPostText, updateNewPostText }) => {
       </div>
       <div className={s.buttonWrapper}>
         <button className={s.button} onClick={() => addPost()}>
-          Send
+          Publish
         </button>
       </div>
     </div>

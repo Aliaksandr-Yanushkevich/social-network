@@ -9,16 +9,16 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import s from './App.module.scss';
 
-const App = ({ appState, addNewPost, updateNewPostText}) => {
+const App = ({ appState, addNewPost, updateNewPostText, sendNewMessage, updateNewMessageText }) => {
   let { posts, newPostText } = appState.profilePage;
-  let { dialogs, messages } = appState.messagesPage;
+  let { dialogs, messages, newMessageText } = appState.messagesPage;
   return (
 
     <div className={s.app_wrapper}>
       <Header />
       <div className={s.app_wrapper_content}>
-        <Route path="/profile" render={() => <Profile posts={posts} addNewPost={addNewPost} newPostText={newPostText} updateNewPostText={updateNewPostText}/>} />
-        <Route path="/messages" render={() => <Messages dialogs={dialogs} messages={messages} />} />
+        <Route path="/profile" render={() => <Profile posts={posts} addNewPost={addNewPost} newPostText={newPostText} updateNewPostText={updateNewPostText} />} />
+        <Route path="/messages" render={() => <Messages dialogs={dialogs} messages={messages} newMessageText={newMessageText} sendNewMessage={sendNewMessage} updateNewMessageText={updateNewMessageText} />} />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />
