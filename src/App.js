@@ -9,11 +9,13 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import s from './App.module.scss';
 
-const App = ({ appState, addNewPost, updateNewPostText, sendNewMessage, updateNewMessageText }) => {
-  let { posts, newPostText } = appState.profilePage;
-  let { dialogs, messages, newMessageText } = appState.messagesPage;
-  return (
+const App = ({ state, addNewPost, updateNewPostText, sendNewMessage, updateNewMessageText }) => {
+  const { posts, newPostText } = state.profilePage;
+  const { dialogs, messages, newMessageText } = state.messagesPage;
+  // const { addNewPost, updateNewPostText, sendNewMessage, updateNewMessageText } = store;
+  // const { sendNewMessage, updateNewMessageText } = store;
 
+  return (
     <div className={s.app_wrapper}>
       <Header />
       <div className={s.app_wrapper_content}>
