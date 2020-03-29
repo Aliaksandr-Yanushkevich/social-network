@@ -5,7 +5,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import NewPost from "./NewPost/NewPost";
 import Post from "./Post/Post";
 
-const Profile = ({ posts, newPostText, addNewPost, updateNewPostText }) => {
+const Profile = ({ posts, newPostText, dispatch }) => {
   const postsElements = posts.map(({ author, text, likeCount }) => (
     <Post author={author} text={text} likeCount={likeCount} />
   ));
@@ -26,9 +26,8 @@ const Profile = ({ posts, newPostText, addNewPost, updateNewPostText }) => {
           ></UserInfo>
           <NewPost
             id="newPost"
-            addNewPost={addNewPost}
+            dispatch={dispatch}
             newPostText={newPostText}
-            updateNewPostText={updateNewPostText}
           />
           {postsElements}
         </div>

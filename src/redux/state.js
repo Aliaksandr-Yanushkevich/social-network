@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import sideReducer from "./sideReducer";
+import messageReducer from "./messageReducer";
+
 export const store = {
     _state: {
         profilePage: {
@@ -26,41 +30,27 @@ export const store = {
                 { message: "You will respect my authority!" }
             ],
             newMessageText: ""
-        }
-    },
-    getState() {
-        return this._state;
+        },
+        sideBar: {}
     },
     _callSubscriber() {
         console.log('State is changed')
     },
-    addNewPost() {
-        const newPost = {
-            id: 4, text: this._state.profilePage.newPostText, likesCount: 0
-        }
-        this._state.profilePage.posts.push(newPost);
-        this.updateNewPostText("");
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    sendNewMessage() {
-        const newMessage = {
-            message: this._state.messagesPage.newMessageText
-        }
-        this._state.messagesPage.messages.push(newMessage);
-        this.updateNewMessageText("");
-        this._callSubscriber(this._state);
-    },
-    updateNewMessageText(newText) {
-        this._state.messagesPage.newMessageText = newText;
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+    dispatch(action) {
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogPage = messageReducer(this._state.messagesPage, action);
+        this._state.sideBar = sideReducer(this._state.sideBar, action);
+        this._callSubscriber(this._state);
     }
 }
+
+
+
 
 window.store = store;

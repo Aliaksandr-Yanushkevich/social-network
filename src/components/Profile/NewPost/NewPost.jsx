@@ -1,15 +1,15 @@
 import React from "react";
 import s from "./NewPost.module.scss";
 import Avatar from "../Avatar/Avatar";
+import { updateNewPostTextCreator, addPostActionCreator } from "../../../redux/profileReducer";
 
-const NewPost = ({ id, addNewPost, newPostText, updateNewPostText }) => {
-  let newPostElement = React.createRef();
+const NewPost = ({ id, newPostText, dispatch}) => {
   let addPost = () => {
-    addNewPost();
+    dispatch(addPostActionCreator());
   };
-  const onPostChange = () => {
-    let text = newPostElement.current.value;
-    updateNewPostText(text);
+  const onPostChange = (e) => {
+    let text = e.target.value;
+    dispatch(updateNewPostTextCreator(text));
   };
   return (
     <div className={s.newPost}>
@@ -18,7 +18,6 @@ const NewPost = ({ id, addNewPost, newPostText, updateNewPostText }) => {
         <Avatar />
         <textarea
           onChange={onPostChange}
-          ref={newPostElement}
           className={s.inputField}
           value={newPostText}
           name=""

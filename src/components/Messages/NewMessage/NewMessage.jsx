@@ -1,20 +1,15 @@
 import React from "react";
 import s from "./NewMessage.module.scss";
+import { sendMessageCreator, updateMessageTextCreator } from "../../../redux/messageReducer";
 // import Avatar from "../../Profile/Avatar/Avatar";
 
-const NewMessage = ({
-  sendNewMessage,
-  updateNewMessageText,
-  newMessageText
-}) => {
-  let newMessageElement = React.createRef();
-
-  const sendMessage = () => {
-    sendNewMessage();
+const NewMessage = ({ dispatch, newMessageText }) => {
+  const sendNewMessage = () => {
+    dispatch(sendMessageCreator());
   };
-  const onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    updateNewMessageText(text);
+  const onMessageChange = (e) => {
+    let text = e.target.value;
+    dispatch(updateMessageTextCreator(text));
   };
   return (
     <div className={s.newPost}>
@@ -23,7 +18,6 @@ const NewMessage = ({
         <textarea
           onChange={onMessageChange}
           className={s.inputField}
-          ref={newMessageElement}
           name=""
           // id={id}
           cols="120"
@@ -33,7 +27,7 @@ const NewMessage = ({
         ></textarea>
       </div>
       <div className={s.buttonWrapper}>
-        <button className={s.button} onClick={() => sendMessage()}>
+        <button className={s.button} onClick={() => sendNewMessage()}>
           Send
         </button>
       </div>

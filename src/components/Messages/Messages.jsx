@@ -4,13 +4,7 @@ import NewMessage from "./NewMessage/NewMessage";
 import s from "./Messages.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 
-const Messages = ({
-  dialogs,
-  messages,
-  sendNewMessage,
-  updateNewMessageText,
-  newMessageText
-}) => {
+const Messages = ({ dialogs, messages, newMessageText, dispatch }) => {
   const dialogItems = dialogs.map(({ id, name }) => (
     <DialogItem name={name} id={id} />
   ));
@@ -25,11 +19,7 @@ const Messages = ({
         <ul>{dialogItems}</ul>
       </div>
       <div className={s.messages}>{messageItems}</div>
-      <NewMessage
-        sendNewMessage={sendNewMessage}
-        updateNewMessageText={updateNewMessageText}
-        newMessageText={newMessageText}
-      />
+      <NewMessage dispatch={dispatch} newMessageText={newMessageText} />
     </div>
   );
 };
