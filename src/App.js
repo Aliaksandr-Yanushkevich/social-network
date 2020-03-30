@@ -10,8 +10,9 @@ import Settings from './components/Settings/Settings';
 import s from './App.module.scss';
 
 const App = ({ state, dispatch }) => {
-  const { posts, newPostText } = state.profilePage;
-  const { dialogs, messages, newMessageText } = state.messagesPage;
+  debugger;
+  const { posts, newPostText } = state.profileReducer;
+  const { dialogs, messages, newMessageText } = state.messagesReducer;
 
   return (
     <div className={s.app_wrapper}>

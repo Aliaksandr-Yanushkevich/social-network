@@ -6,6 +6,7 @@ import NewPost from "./NewPost/NewPost";
 import Post from "./Post/Post";
 
 const Profile = ({ posts, newPostText, dispatch }) => {
+  debugger;
   const postsElements = posts.map(({ author, text, likeCount }) => (
     <Post author={author} text={text} likeCount={likeCount} />
   ));

@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./NewMessage.module.scss";
-import { sendMessageCreator, updateMessageTextCreator } from "../../../redux/messageReducer";
+import { sendMessageCreator, updateMessageTextCreator } from "../../../redux/messagesReducer";
 // import Avatar from "../../Profile/Avatar/Avatar";
 
 const NewMessage = ({ dispatch, newMessageText }) => {

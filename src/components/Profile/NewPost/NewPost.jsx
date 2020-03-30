@@ -4,6 +4,7 @@ import Avatar from "../Avatar/Avatar";
 import { updateNewPostTextCreator, addPostActionCreator } from "../../../redux/profileReducer";
 
 const NewPost = ({ id, newPostText, dispatch}) => {
+  debugger;
   let addPost = () => {
     dispatch(addPostActionCreator());
   };
