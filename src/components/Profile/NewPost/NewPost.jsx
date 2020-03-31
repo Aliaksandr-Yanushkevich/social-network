@@ -1,16 +1,14 @@
 import React from "react";
 import s from "./NewPost.module.scss";
 import Avatar from "../Avatar/Avatar";
-import { updateNewPostTextCreator, addPostActionCreator } from "../../../redux/profileReducer";
 
-const NewPost = ({ id, newPostText, dispatch}) => {
-  debugger;
+const NewPost = ({ id, newPostText, onAddPost, onPostChange}) => {
   let addPost = () => {
-    dispatch(addPostActionCreator());
+    onAddPost();
   };
-  const onPostChange = (e) => {
+  const PostChange = (e) => {
     let text = e.target.value;
-    dispatch(updateNewPostTextCreator(text));
+    onPostChange(text)
   };
   return (
     <div className={s.newPost}>
@@ -18,7 +16,7 @@ const NewPost = ({ id, newPostText, dispatch}) => {
       <div className={s.message}>
         <Avatar />
         <textarea
-          onChange={onPostChange}
+          onChange={PostChange}
           className={s.inputField}
           value={newPostText}
           name=""

@@ -2,14 +2,17 @@ import React from "react";
 import avatar from "./avatar.png";
 import s from "./Profile.module.scss";
 import UserInfo from "./UserInfo/UserInfo";
-import NewPost from "./NewPost/NewPost";
 import Post from "./Post/Post";
+import NewPostContainer from "./NewPost/NewPostContainer";
 
-const Profile = ({ posts, newPostText, dispatch }) => {
+const Profile = ({ store }) => {
+  const state = store.getState();
   debugger;
-  const postsElements = posts.map(({ author, text, likeCount }) => (
-    <Post author={author} text={text} likeCount={likeCount} />
-  ));
+  const postsElements = state.profileReducer.posts.map(
+    ({ author, text, likeCount }) => (
+      <Post author={author} text={text} likeCount={likeCount} />
+    )
+  );
   return (
     <div className={s.content}>
       <div className={s.narrowColumn}>
@@ -25,11 +28,7 @@ const Profile = ({ posts, newPostText, dispatch }) => {
             city="Minsk"
             education="Rolling Scopes Front-End Course"
           ></UserInfo>
-          <NewPost
-            id="newPost"
-            dispatch={dispatch}
-            newPostText={newPostText}
-          />
+          <NewPostContainer store={store} />
           {postsElements}
         </div>
       </div>

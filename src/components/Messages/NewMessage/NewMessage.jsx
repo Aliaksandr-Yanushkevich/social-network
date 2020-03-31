@@ -1,15 +1,14 @@
 import React from "react";
 import s from "./NewMessage.module.scss";
-import { sendMessageCreator, updateMessageTextCreator } from "../../../redux/messagesReducer";
 // import Avatar from "../../Profile/Avatar/Avatar";
 
-const NewMessage = ({ dispatch, newMessageText }) => {
+const NewMessage = ({ onSendNewMessage, updateMessageText, newMessageText }) => {
   const sendNewMessage = () => {
-    dispatch(sendMessageCreator());
+    onSendNewMessage();
   };
   const onMessageChange = (e) => {
     let text = e.target.value;
-    dispatch(updateMessageTextCreator(text));
+    updateMessageText(text);
   };
   return (
     <div className={s.newPost}>
