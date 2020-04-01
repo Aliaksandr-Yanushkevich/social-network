@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../Avatar/Avatar";
+import Avatar from "../../Avatar/Avatar";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";

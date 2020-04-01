@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./NewPost.module.scss";
-import Avatar from "../Avatar/Avatar";
+import Avatar from "../../Avatar/Avatar";
 
 const NewPost = ({ id, newPostText, onAddPost, onPostChange}) => {
   let addPost = () => {
