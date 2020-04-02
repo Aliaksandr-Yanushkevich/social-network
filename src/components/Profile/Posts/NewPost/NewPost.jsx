@@ -2,7 +2,7 @@ import React from "react";
 import s from "./NewPost.module.scss";
 import Avatar from "../../Avatar/Avatar";
 
-const NewPost = ({ id, newPostText, onAddPost, onPostChange}) => {
+const NewPost = ({ newPostText, onAddPost, onPostChange}) => {
   let addPost = () => {
     onAddPost();
   };
@@ -20,7 +20,6 @@ const NewPost = ({ id, newPostText, onAddPost, onPostChange}) => {
           className={s.inputField}
           value={newPostText}
           name=""
-          id={id}
           cols="120"
           rows="3"
           placeholder="Anything new?"

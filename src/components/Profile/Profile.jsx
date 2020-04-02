@@ -4,8 +4,8 @@ import s from "./Profile.module.scss";
 import UserInfo from "./UserInfo/UserInfo";
 import MyPostsContainer from "./Posts/MyPostsContainer";
 
-const Profile = ({ store }) => {
-   return (
+const Profile = () => {
+  return (
     <div className={s.content}>
       <div className={s.narrowColumn}>
         <div className={s.avatar + " " + s.block}>
@@ -19,7 +19,7 @@ const Profile = ({ store }) => {
             city="Minsk"
             education="Rolling Scopes Front-End Course"
           ></UserInfo>
-          <MyPostsContainer store={store} />
+          <MyPostsContainer />
         </div>
       </div>
     </div>

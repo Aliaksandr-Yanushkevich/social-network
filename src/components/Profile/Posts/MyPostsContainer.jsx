@@ -1,40 +1,57 @@
-import React from "react";
-import NewPost from "./NewPost/NewPost";
-import PostHistory from "./PostHistory/PostHistory";
-import StoreContext from "../../../StoreContext";
-import { Fragment } from "react";
-import { addPostActionCreator, updateNewPostTextCreator } from "../../../redux/profileReducer";
+import {
+  addPostActionCreator,
+  updateNewPostTextCreator
+} from "../../../redux/profileReducer";
+import { connect } from "react-redux";
+import MyPosts from "./MyPosts";
 
-const MyPostsContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {store => {
-        debugger;
-        const state = store.getState();
+// const MyPostsContainer = () => {
+//   return (
+//     <StoreContext.Consumer>
+//       {store => {
+//         debugger;
+//         const state = store.getState();
 
-        const addPost = () => {
-          store.dispatch(addPostActionCreator());
-        };
+//         const addPost = () => {
+//           store.dispatch(addPostActionCreator());
+//         };
 
-        const updateNewPost = text => {
-          debugger;
-          store.dispatch(updateNewPostTextCreator(text));
-        };
+//         const updateNewPost = text => {
+//           debugger;
+//           store.dispatch(updateNewPostTextCreator(text));
+//         };
 
-        return (
-          <Fragment>
-            <NewPost
-              id="1"
-              newPostText={state.profileReducer.newPostText}
-              onAddPost={addPost}
-              onPostChange={updateNewPost}
-            />
-            <PostHistory posts={state.profileReducer.posts} />
-          </Fragment>
-        );
-      }}
-    </StoreContext.Consumer>
-  );
+//         return (
+//           <Fragment>
+//             <NewPost
+//               newPostText={state.profileReducer.newPostText}
+//               onAddPost={addPost}
+//               onPostChange={updateNewPost}
+//             />
+//             <PostHistory posts={state.profileReducer.posts} />
+//           </Fragment>
+//         );
+//       }}
+//     </StoreContext.Consumer>
+//   );
+// };
+const mapStateToProps = ({ profileReducer }) => {
+  return {
+    profileReducer: profileReducer
+  };
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPost: () => {
+      dispatch(addPostActionCreator());
+    },
+    onPostChange: text => {
+      const action = updateNewPostTextCreator(text);
+      dispatch(action);
+    }
+  };
+};
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;
