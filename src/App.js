@@ -10,7 +10,6 @@ import Settings from './components/Settings/Settings';
 import s from './App.module.scss';
 
 const App = () => {
-  debugger;
   return (
     <div className={s.app_wrapper}>
       <Header />

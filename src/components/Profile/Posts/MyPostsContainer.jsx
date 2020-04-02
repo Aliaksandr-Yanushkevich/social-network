@@ -37,7 +37,8 @@ import MyPosts from "./MyPosts";
 // };
 const mapStateToProps = ({ profileReducer }) => {
   return {
-    profileReducer: profileReducer
+    posts: profileReducer.posts,
+    newPostText: profileReducer.newPostText,
   };
 };
 
