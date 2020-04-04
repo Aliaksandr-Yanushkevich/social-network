@@ -12,19 +12,29 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/messages" activeClassName={s.active}>Messages</NavLink>
+          <NavLink to="/news" activeClassName={s.active}>
+            News
+          </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/news" activeClassName={s.active}>News</NavLink>
+          <NavLink to="/messages" activeClassName={s.active}>
+            Messages
+          </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/music" activeClassName={s.active}>Music</NavLink>
+          <NavLink to="/users" activeClassName={s.active}>
+            Users
+          </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
+          <NavLink to="/music" activeClassName={s.active}>
+            Music
+          </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/users" activeClassName={s.active}>Users</NavLink>
+          <NavLink to="/settings" activeClassName={s.active}>
+            Settings
+          </NavLink>
         </li>
       </ul>
     </div>
