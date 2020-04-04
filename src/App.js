@@ -7,6 +7,7 @@ import MessagesContainer from './components/Messages/MessagesContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import UsersContainer from './components/Users/UsersContainer';
 import s from './App.module.scss';
 
 const App = () => {
@@ -14,11 +15,12 @@ const App = () => {
     <div className={s.app_wrapper}>
       <Header />
       <div className={s.app_wrapper_content}>
-        <Route path="/profile" render={() => <Profile  />} />
+        <Route path="/profile" render={() => <Profile />} />
         <Route path="/messages" render={() => <MessagesContainer />} />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />
+        <Route path="/users" render={() => <UsersContainer />} />
       </div>
       <NavBar />
     </div>

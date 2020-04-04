@@ -4,16 +4,17 @@ import NewMessage from "./NewMessage/NewMessage";
 import s from "./Messages.module.scss";
 import DialogItem from "./DialogItem/DialogItem";
 
-const Messages = ({ messagesReducer, onSendNewMessage, updateMessageText }) => {
-  const dialogItems = messagesReducer.dialogs.map(({ id, name }) => (
-    <DialogItem name={name} id={id} />
+const Messages = ({ messagesPage, onSendNewMessage, updateMessageText }) => {
+  debugger;
+  const dialogItems = messagesPage.dialogs.map(({ id, name }) => (
+    <DialogItem name={name} id={id} key={id} />
   ));
 
-  const messageItems = messagesReducer.messages.map(({ message }) => (
-    <Message message={message} />
+  const messageItems = messagesPage.messages.map(({ message, id }) => (
+    <Message message={message} key={id} />
   ));
 
-  const newMessageText = messagesReducer.newMessageText;
+  const newMessageText = messagesPage.newMessageText;
   return (
     <div className={s.dialogs}>
       <div className={s.dialogItems}>

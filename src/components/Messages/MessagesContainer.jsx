@@ -1,6 +1,3 @@
-import React from "react";
-import Message from "./Message/Message";
-import DialogItem from "./DialogItem/DialogItem";
 import Messages from "./Messages";
 import { connect } from "react-redux";
 import {
@@ -8,9 +5,9 @@ import {
   updateMessageTextCreator
 } from "../../redux/messagesReducer";
 
-const mapStateToProps = ({ messagesReducer }) => {
+const mapStateToProps = ({ messagesPage }) => {
   return {
-    messagesReducer: messagesReducer
+    messagesPage: messagesPage
   };
 };
 

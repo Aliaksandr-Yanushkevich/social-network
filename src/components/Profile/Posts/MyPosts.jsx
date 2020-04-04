@@ -1,12 +1,11 @@
 import React from "react";
-import avatar from "../avatar.png";
 import s from "../Profile.module.scss";
 import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
 const MyPosts = ({ posts, newPostText, onAddPost, onPostChange }) => {
-  const postsElements = posts.map(({ author, text, likeCount }) => (
-    <Post author={author} text={text} likeCount={likeCount} />
+  const postsElements = posts.map(({ author, text, likeCount, id}) => (
+    <Post author={author} text={text} likeCount={likeCount} key={id}/>
   ));
   return (
     <div className={s.content}>

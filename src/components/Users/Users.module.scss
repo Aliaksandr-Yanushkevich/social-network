@@ -1,0 +1,35 @@
+@import "../Styleguide/Styleguide.scss";
+
+.user {
+  font-family: $font;
+  display: flex;
+  border: $border;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.userImg img {
+  width: 100px;
+  //   border-radius: 50%;
+  margin-right: 20px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.button {
+    width: 100px;
+    margin-top: 10px;
+}

@@ -5,40 +5,11 @@ import {
 import { connect } from "react-redux";
 import MyPosts from "./MyPosts";
 
-// const MyPostsContainer = () => {
-//   return (
-//     <StoreContext.Consumer>
-//       {store => {
-//         debugger;
-//         const state = store.getState();
-
-//         const addPost = () => {
-//           store.dispatch(addPostActionCreator());
-//         };
-
-//         const updateNewPost = text => {
-//           debugger;
-//           store.dispatch(updateNewPostTextCreator(text));
-//         };
-
-//         return (
-//           <Fragment>
-//             <NewPost
-//               newPostText={state.profileReducer.newPostText}
-//               onAddPost={addPost}
-//               onPostChange={updateNewPost}
-//             />
-//             <PostHistory posts={state.profileReducer.posts} />
-//           </Fragment>
-//         );
-//       }}
-//     </StoreContext.Consumer>
-//   );
-// };
-const mapStateToProps = ({ profileReducer }) => {
+const mapStateToProps = ({ profilePage }) => {
+  const { posts, newPostText } = profilePage;
   return {
-    posts: profileReducer.posts,
-    newPostText: profileReducer.newPostText,
+    posts: posts,
+    newPostText: newPostText
   };
 };
 
