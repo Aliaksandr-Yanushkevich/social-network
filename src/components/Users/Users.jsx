@@ -1,72 +1,77 @@
-import React, { Fragment } from "react";
+import React from "react";
 import s from "./Users.module.scss";
-import kenny from "./img/kenny.png";
-import butters from "./img/butters.png";
 import stan from "./img/stan.png";
-import kyle from "./img/kyle.png";
-import * as axios from "axios";
+import { NavLink } from "react-router-dom";
 
-class Users extends React.Component {
-  getUsers = () => {
-    if (this.props.users.length === 0) {
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          debugger;
-          this.props.setUsers(response.data.items);
-        });
-    }
-  };
-
-  render() {
-    debugger;
-    return (
-      <Fragment>
-        <button className={s.button} onClick={this.getUsers}>
-          Get users
-        </button>
-        <div className={s.usersWrapper}>
-          {this.props.users.map((u) => {
+const Users = ({
+  totalUsersCount,
+  pageSize,
+  currentPage,
+  users,
+  onPageChanged,
+  follow,
+  unfollow,
+}) => {
+  const pagesCount = Math.ceil(totalUsersCount / pageSize);
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+  return (
+    <>
+      <div className={s.pages}>
+        <ul>
+          {pages.map((p) => {
             return (
-              <div className={s.user}>
-                <div className={s.userImg}>
+              <li>
+                <span
+                  className={p === currentPage ? s.selectedPage : ""}
+                  onClick={() => onPageChanged(p)}
+                >
+                  {p}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <div className={s.usersWrapper}>
+        {users.map((u) => {
+          return (
+            <div className={s.user}>
+              <div className={s.userImg}>
+                <NavLink to={"/profile/" + u.id}>
                   <img
                     src={u.photos.small ? u.photos.small : stan}
                     alt={u.name}
                   />
-                </div>
-                <div className={s.userInfo}>
-                  <h2>{u.name}</h2>
-                  <ul>
-                    <li>
-                      {"u.location.city"}, {"u.location.country"}
-                    </li>
-                    <li>{u.status}</li>
-                  </ul>
-                  {u.followed ? (
-                    <button
-                      className={s.button}
-                      onClick={() => this.props.unfollow(u.id)}
-                    >
-                      Unfollow
-                    </button>
-                  ) : (
-                    <button
-                      className={s.button}
-                      onClick={() => this.props.follow(u.id)}
-                    >
-                      Follow
-                    </button>
-                  )}
-                </div>
-                <div className={s.buttonWrapper}></div>
+                </NavLink>
               </div>
-            );
-          })}
-        </div>
-      </Fragment>
-    );
-  }
-}
+              <div className={s.userInfo}>
+                <h2>{u.name}</h2>
+                <ul>
+                  <li>
+                    {"u.location.city"}, {"u.location.country"}
+                  </li>
+                  <li>{u.status}</li>
+                </ul>
+                {u.followed ? (
+                  <button className={s.button} onClick={() => unfollow(u.id)}>
+                    Unfollow
+                  </button>
+                ) : (
+                  <button className={s.button} onClick={() => follow(u.id)}>
+                    Follow
+                  </button>
+                )}
+              </div>
+              <div className={s.buttonWrapper}></div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+};
 
 export default Users;

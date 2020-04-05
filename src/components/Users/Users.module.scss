@@ -1,4 +1,11 @@
 @import "../Styleguide/Styleguide.scss";
+.usersWrapper {
+  display: grid;
+  // grid-template-rows: 150px 150px 150px 150px 150px;
+  // grid-template-columns: 30% 30% 30%;
+  grid-template-rows: repeat(5, 150px);
+  grid-template-columns: repeat(3, 400px);
+}
 
 .user {
   font-family: $font;
@@ -7,11 +14,13 @@
   border-radius: 5px;
   margin: 10px 0;
   padding: 10px;
+  max-width: 400px;
+  width: 30%;
 }
 
 .userInfo ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .userImg img {
@@ -26,10 +35,24 @@
 }
 
 h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .button {
-    // width: 100px;
-    margin-top: 10px;
+  // width: 100px;
+  margin-top: 10px;
+}
+
+.selectedPage {
+  font-weight: bold;
+}
+
+.pages ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.pages li {
+  margin: 0 5px;
+  cursor: pointer;
 }

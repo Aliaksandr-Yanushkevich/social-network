@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import s from "./Post.module.scss";
 
-const Post = ({ text, author, likeCount }) => {
+const Post = ({avatar, text, author, likeCount }) => {
   return (
     <div className={s.post}>
-      <Avatar />
+      <Avatar avatar={avatar}/>
       <div className={s.message}>
         <div className={s.postDetails}>
           <NavLink to="/profile" className={s.author}>

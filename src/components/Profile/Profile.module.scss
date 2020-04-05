@@ -1,7 +1,7 @@
-@import "../Styleguide/Styleguide.scss";
+@import "../../components/Styleguide/Styleguide.scss";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .content {
@@ -13,19 +13,9 @@
   padding: 20px;
 }
 
-.narrowColumn {
-    width: 20%;
-    background-color: $boxColor;
-    border-radius: 8px;
-}
-
 .wideColumn {
-    width: 78%;
-    background-color: $boxColor;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.avatar img {
-    width: 100%;
+  width: 68%;
+  background-color: $boxColor;
+  border-radius: 8px;
+  padding: 20px;
 }

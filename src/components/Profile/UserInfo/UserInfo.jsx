@@ -1,14 +1,13 @@
 import React from "react";
 import s from "./UserInfo.module.scss";
 
-const UserInfo = ({ birthday, city, education }) => {
+const UserInfo = ({fullName, aboutMe, lookingForAJob, lookingForAJobDescription}) => {
   return (
     <div className={s.userInfo}>
-      <h1 className={s.username}>Eric Cartman</h1>
+      <h1 className={s.username}>{fullName}</h1>
       <ul>
-        <li>Date of Birth: {birthday}</li>
-        <li>City: {city}</li>
-        <li>Education: {education}</li>
+        <li>About me: {aboutMe}</li>
+        {lookingForAJob ? <li>Looking for a job in: {lookingForAJobDescription}</li> : null}
       </ul>
     </div>
   );

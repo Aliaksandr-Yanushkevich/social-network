@@ -1,0 +1,26 @@
+@import "../../Styleguide/Styleguide.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.narrowColumn {
+  width: 30%;
+  background-color: $boxColor;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.contactBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.contactBlock img {
+  max-width: 300px;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 10px;
+}
