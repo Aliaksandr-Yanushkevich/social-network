@@ -1,13 +1,10 @@
 import * as axios from "axios";
-import { follow } from "../redux/usersReducer";
 
 const instance = axios.create({
     withCredentials: true,
-    "API-KEY": "71dc6f3f-2907-4703-a9c6-e1ecaf056f41",
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+    headers: { "API-KEY": "71dc6f3f-2907-4703-a9c6-e1ecaf056f41", }
 })
-
-
 
 export const usersApi = {
     getUsers(pageNumber = 1, pageSize = 15) {
@@ -16,10 +13,23 @@ export const usersApi = {
     },
     unfollow(id) {
         return instance.delete(`follow/${id}`)
-            .then(response => response.data)
+            .then(response => response.data
+            )
     },
     follow(id) {
         return instance.post(`follow/${id}`)
-            .then(response => response.data)
-    }
+            .then(response => response.data
+            )
+    },
+    auth() {
+        return instance
+            .get(`auth/me`)
+            .then((response) => response.data.data
+            )
+    },
+    getProfile(userId) {
+        return instance
+            .get(`profile/${userId}`)
+            .then((response) => response.data);
+    },
 }

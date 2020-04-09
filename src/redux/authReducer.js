@@ -1,3 +1,5 @@
+import { usersApi } from "../../src/api/api";
+
 const SET_USER_DATA = "SET_USER_DATA";
 const TOOGGLE_IS_FETCHING = "TOOGGLE_IS_FETCHING";
 const SET_USER_PHOTO = "SET_USER_PHOTO";
@@ -8,6 +10,15 @@ export const setUserData = ({ id, email, login }) =>
 export const tooggleIsFetching = (isFetching) => {
     return { type: TOOGGLE_IS_FETCHING, isFetching }
 }
+
+export const auth = () => (dispatch) => {
+    usersApi.auth().then((data) => {
+        dispatch(tooggleIsFetching(false));
+        dispatch(setUserData(data));
+    });
+}
+
+
 
 let initialState = {
     id: null,

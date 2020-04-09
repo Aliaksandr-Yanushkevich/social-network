@@ -5,34 +5,20 @@ import Loader from "react-loader-spinner";
 import {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
   toggleFollowingProgress,
+  getUsers,
 } from "../../redux/usersReducer";
-import { usersApi } from "../../api/api";
 
 class UsersContainer extends React.Component {
   onPageChanged = (pageNumber) => {
+    this.props.getUsers(pageNumber, this.props.pageSize);
     this.props.setCurrentPage(pageNumber);
-    this.props.toggleIsFetching(true);
-    usersApi.getUsers(pageNumber, this.props.pageSize).then((data) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(data.items);
-    });
   };
 
   componentDidMount() {
     if (this.props.users.length === 0) {
-      this.props.toggleIsFetching(true);
-      usersApi
-        .getUsers(this.props.currentPage, this.props.pageSize)
-        .then((data) => {
-          this.props.toggleIsFetching(false);
-          this.props.setUsers(data.items);
-          this.props.setTotalUsersCount(data.totalCount);
-        });
+      this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
   }
 
@@ -80,9 +66,7 @@ const mapStateToProps = ({ usersPage }) => {
 export default connect(mapStateToProps, {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
   toggleFollowingProgress,
+  getUsers,
 })(UsersContainer);
