@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const ContactBlock = ({ photo, contacts }) => {
-  console.log(contacts);
   return (
     <div className={s.narrowColumn}>
       <div className={s.contactBlock}>

@@ -1,5 +1,4 @@
 import React from "react";
-import avatar from "./avatar.png";
 import s from "./Profile.module.scss";
 import UserInfo from "./UserInfo/UserInfo";
 import MyPostsContainer from "./Posts/MyPostsContainer";
