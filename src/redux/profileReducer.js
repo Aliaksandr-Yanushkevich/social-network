@@ -13,6 +13,7 @@ export const getProfile = (userId) => (dispatch) => {
         userId = 2;
       }
       usersApi.getProfile(userId).then((data) => {
+          debugger;
         dispatch(setUserProfile(data));
       });
 };

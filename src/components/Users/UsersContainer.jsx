@@ -9,6 +9,8 @@ import {
   toggleFollowingProgress,
   getUsers,
 } from "../../redux/usersReducer";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 class UsersContainer extends React.Component {
   onPageChanged = (pageNumber) => {
@@ -63,10 +65,13 @@ const mapStateToProps = ({ usersPage }) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsers,
-})(UsersContainer);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrentPage,
+    toggleFollowingProgress,
+    getUsers,
+  }),
+  withAuthRedirect
+)(UsersContainer);

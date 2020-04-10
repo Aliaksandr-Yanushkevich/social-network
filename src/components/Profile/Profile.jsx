@@ -4,6 +4,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import MyPostsContainer from "./Posts/MyPostsContainer";
 import Loader from "react-loader-spinner";
 import ContactBlock from "./ContactBlock/ContactBlock";
+import { Redirect } from "react-router-dom";
 
 const Profile = (props) => {
   if (!props.profile) {

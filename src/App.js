@@ -9,6 +9,7 @@ import UsersContainer from './components/Users/UsersContainer';
 import s from './App.module.scss';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/music" component={Music} />
         <Route path="/settings" component={Settings} />
         <Route path="/users" render={() => <UsersContainer />} />
+        <Route path="/login" render={() => <LoginPage />} />
       </div>
       <NavBar />
     </div>

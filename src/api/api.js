@@ -21,15 +21,18 @@ export const usersApi = {
             .then(response => response.data
             )
     },
-    auth() {
-        return instance
-            .get(`auth/me`)
-            .then((response) => response.data.data
-            )
-    },
     getProfile(userId) {
         return instance
             .get(`profile/${userId}`)
             .then((response) => response.data);
+    },
+}
+
+export const authApi = { 
+    me() {
+        return instance
+            .get(`auth/me`)
+            .then((response) => response.data
+            )
     },
 }
