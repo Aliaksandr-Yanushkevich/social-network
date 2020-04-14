@@ -13,7 +13,6 @@ export const tooggleIsFetching = (isFetching) => {
 
 export const getAuthUserData = () => (dispatch) => {
     authApi.me().then((data) => {
-        debugger;
         if (data.resultCode === 0) {
             dispatch(tooggleIsFetching(false));
             dispatch(setAuthUserData( data.data ));
@@ -33,7 +32,6 @@ let initialState = {
     isFetching: false
 }
 const authReducer = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case SET_USER_DATA:
             return {

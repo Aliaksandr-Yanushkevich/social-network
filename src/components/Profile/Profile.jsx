@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import MyPostsContainer from "./Posts/MyPostsContainer";
 import Loader from "react-loader-spinner";
 import ContactBlock from "./ContactBlock/ContactBlock";
-import { Redirect } from "react-router-dom";
+import { ProfileStatus } from "./ProfileStatus/ProfileStatus";
 
 const Profile = (props) => {
   if (!props.profile) {
@@ -19,6 +19,7 @@ const Profile = (props) => {
       />
       <div className={s.wideColumn}>
         <div className={s.info}>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
           <UserInfo
             fullName={props.profile.fullName}
             aboutMe={props.profile.fullName}
