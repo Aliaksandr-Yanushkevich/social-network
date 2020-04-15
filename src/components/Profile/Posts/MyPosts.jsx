@@ -19,9 +19,7 @@ const MyPosts = (props) => {
       <div className={s.wideColumn}>
         <NewPost
           avatar={props.avatar}
-          newPostText={props.newPostText}
           onAddPost={props.onAddPost}
-          onPostChange={props.onPostChange}
         />
         {postsElements}
       </div>

@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 const Messages = ({
   messagesPage,
   onSendNewMessage,
-  updateMessageText,
+  // updateMessageText,
   isAuth,
 }) => {
   if (!isAuth) return <Redirect to="/login" />;
@@ -28,7 +28,7 @@ const Messages = ({
       <NewMessage
         newMessageText={newMessageText}
         onSendNewMessage={onSendNewMessage}
-        updateMessageText={updateMessageText}
+        // updateMessageText={updateMessageText}
       />
     </div>
   );

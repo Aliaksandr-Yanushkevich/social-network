@@ -1,35 +1,44 @@
 import React from "react";
 import s from "./NewMessage.module.scss";
+import { reduxForm, Field } from "redux-form";
 // import Avatar from "../../Profile/Avatar/Avatar";
 
-const NewMessage = ({ onSendNewMessage, updateMessageText, newMessageText }) => {
-  const sendNewMessage = () => {
-    onSendNewMessage();
-  };
-  const onMessageChange = (e) => {
-    let text = e.target.value;
-    updateMessageText(text);
-  };
+const NewMessageForm = (props) => {
   return (
-    <div className={s.newPost}>
+    <form onSubmit={props.handleSubmit}>
       <div className={s.message}>
         {/* <Avatar/> */}
-        <textarea
-          onChange={onMessageChange}
+        <Field
           className={s.inputField}
-          name=""
+          name="newMessage"
           // id={id}
           cols="120"
           rows="3"
           placeholder="Write message..."
-          value={newMessageText}
-        ></textarea>
+          component="textarea"
+        />
       </div>
       <div className={s.buttonWrapper}>
-        <button className={s.button} onClick={() => sendNewMessage()}>
-          Send
-        </button>
+        <button className={s.button}>Send</button>
       </div>
+    </form>
+  );
+};
+
+const NewMessageReduxForm = reduxForm({
+  form: "newMessage",
+})(NewMessageForm);
+
+const NewMessage = ({
+  onSendNewMessage
+}) => {
+  const sendNewMessage = (values) => {
+    onSendNewMessage(values.newMessage)
+  };
+  
+  return (
+    <div className={s.newPost}>
+      <NewMessageReduxForm onSubmit={sendNewMessage}/>
     </div>
   );
 };
