@@ -1,7 +1,11 @@
 import React from "react";
 import s from "./NewMessage.module.scss";
 import { reduxForm, Field } from "redux-form";
+import { TextArea } from "../../FormsControl/FormsControl";
+import { maxLengthCreator, required } from "../../../utils/validators/validators";
 // import Avatar from "../../Profile/Avatar/Avatar";
+
+const maxLength500 = maxLengthCreator(500)
 
 const NewMessageForm = (props) => {
   return (
@@ -15,7 +19,8 @@ const NewMessageForm = (props) => {
           cols="120"
           rows="3"
           placeholder="Write message..."
-          component="textarea"
+          component={TextArea}
+          validate={[required, maxLength500]}
         />
       </div>
       <div className={s.buttonWrapper}>

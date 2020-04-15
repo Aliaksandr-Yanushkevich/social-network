@@ -2,6 +2,10 @@ import React from "react";
 import s from "./NewPost.module.scss";
 import Avatar from "../../Avatar/Avatar";
 import { reduxForm, Field } from "redux-form";
+import { TextArea } from "../../../FormsControl/FormsControl";
+import { maxLengthCreator, required } from "../../../../utils/validators/validators";
+
+const maxLength10 = maxLengthCreator(10)
 
 const NewPostForm = (props) => {
   return (
@@ -13,7 +17,8 @@ const NewPostForm = (props) => {
           cols="120"
           rows="3"
           placeholder="Anything new?"
-          component="textarea"
+          validate={[required, maxLength10]}
+          component={TextArea}
         />
       </div>
       <div className={s.buttonWrapper}>
