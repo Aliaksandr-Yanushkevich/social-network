@@ -4,6 +4,7 @@ import {
   setUserPhoto,
   tooggleIsFetching,
   getAuthUserData,
+  logout,
 } from "../../redux/authReducer";
 import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
@@ -32,4 +33,5 @@ export default connect(mapsStateToProps, {
   tooggleIsFetching,
   setUserPhoto,
   getAuthUserData,
+  logout,
 })(HeaderContainer);
