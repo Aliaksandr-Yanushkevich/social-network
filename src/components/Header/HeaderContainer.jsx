@@ -3,19 +3,18 @@ import Header from "./Header";
 import {
   setUserPhoto,
   tooggleIsFetching,
-  getAuthUserData,
   logout,
 } from "../../redux/authReducer";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    if (this.props.isFetching) {
-      return <Loader type="Puff" color="#00BFFF" height={100} width={100} />;
-    }
-    this.props.getAuthUserData();
-  }
+  // componentDidMount() {
+  //   if (this.props.isFetching) {
+  //     return <Loader type="Puff" color="#00BFFF" height={100} width={100} />;
+  //   }
+  //   this.props.getAuthUserData();
+  // }
   render() {
     return <Header {...this.props} />;
   }
@@ -32,6 +31,5 @@ const mapsStateToProps = (state) => {
 export default connect(mapsStateToProps, {
   tooggleIsFetching,
   setUserPhoto,
-  getAuthUserData,
   logout,
 })(HeaderContainer);
