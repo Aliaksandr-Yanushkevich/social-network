@@ -19,7 +19,9 @@ const Profile = (props) => {
       />
       <div className={s.wideColumn}>
         <div className={s.info}>
-          <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}
+          // profileUserId = {props.profileUserId} authorizedUserId = {props.authorizedUserId}
+          />
           <UserInfo
             fullName={props.profile.fullName}
             aboutMe={props.profile.fullName}

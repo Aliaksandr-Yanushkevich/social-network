@@ -1,52 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
-export class ProfileStatus extends React.Component {
-  statusInputRef = React.createRef();
-  state = {
-    editMode: false,
-    status: this.props.status,
+export const ProfileStatus = (props) => {
+  const [editMode, setEditMode] = useState(false);
+  const [status, setStatus] = useState(props.status);
+
+  const activateEditMode = () => {
+    // if (props.profileUserId === props.authorizedUserId) 
+    
+      setEditMode(true);
+    
   };
 
-  activateEditMode = () => {
-    this.setState({ editMode: true });
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(status);
   };
 
-  deactivateEditMode = () => {
-    this.setState({ editMode: false });
-    this.props.updateStatus(this.state.status);
+  const statusChange = (e) => {
+    setStatus(e.currentTarget.value);
   };
-
-  onStatusChange = (e) => {
-    this.setState({ status: e.currentTarget.value });
-  };
-
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps.status !== this.props.status) {
-      this.setState({ status: this.props.status });
-    }
-  };
-
-  render() {
-    return (
-      <>
-        {!this.state.editMode ? (
-          <div className="">
-            <span onDoubleClick={this.activateEditMode}>
-              {this.props.status || "-----"}
-            </span>
-          </div>
-        ) : (
-          <div className="">
-            <input
-              onChange={this.onStatusChange}
-              autoFocus={true}
-              onBlur={this.deactivateEditMode}
-              type="text"
-              value={this.state.status}
-            />
-          </div>
-        )}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {!editMode ? (
+        <div className="">
+          <span onDoubleClick={activateEditMode}>
+            {props.status || "-----"}
+          </span>
+        </div>
+      ) : (
+        <div className="">
+          <input
+            onChange={statusChange}
+            autoFocus={true}
+            onBlur={deactivateEditMode}
+            type="text"
+            value={status}
+          />
+        </div>
+      )}
+    </>
+  );
+};
