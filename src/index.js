@@ -6,13 +6,6 @@ import App from './App';
 import store from './redux/redux-store';
 import { Provider } from 'react-redux';
 
-const lalka = () => {
-    store.dispatch({ type: "ADD_POST",  postBody: "hello"});
-    return setTimeout(lalka, 1000);
-}
-
-lalka()
-
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
